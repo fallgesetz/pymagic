@@ -1,3 +1,4 @@
+import StringIO
 import csv
 import inspect
 import os
@@ -34,6 +35,24 @@ class Magician(object):
             if hexified_header_data.startswith(signature):
                 return self.file_mapping[signature]
         raise Exception("can't find file. Could it be a text file?")
+
+
+def identify_file(filename):
+    """
+    Convenience function that takes in a filename
+    """
+    mage = Magician()
+    with open(filename, 'rb') as f:
+        return mage.identify(f)
+
+def identify_str(string):
+    """
+    Convenience function that takes in a string buffer
+    """
+    f = StringIO.StringIO(string)
+    mage = Magician()
+    return mage.identify(f)
+
 
 
 
