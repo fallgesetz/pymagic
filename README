@@ -1,0 +1,5 @@
+Native libmagic functionality in Python
+
+Using file signatures from: http://www.garykessler.net/library/file_sigs.html
+
+
